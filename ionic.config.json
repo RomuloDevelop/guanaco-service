@@ -1,0 +1,7 @@
+{
+  "name": "guanaco-services",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
