@@ -1,16 +1,14 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
-import './Page.css';
+import { FC, ReactElement } from 'react';
 
-const Page: React.FC = () => {
+type PageProps = { name: string, children: ReactElement }
 
-  const { name } = useParams<{ name: string; }>();
+const Page: FC<PageProps> = ({name, children}) => {
 
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color='secondary'>
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
@@ -20,14 +18,14 @@ const Page: React.FC = () => {
 
       <IonContent fullscreen>
         <IonHeader collapse="condense">
-          <IonToolbar>
+          <IonToolbar color='secondary'>
             <IonTitle size="large">{name}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name={name} />
+        {children}
       </IonContent>
     </IonPage>
   );
 };
 
-export default Page;
+export default Page
