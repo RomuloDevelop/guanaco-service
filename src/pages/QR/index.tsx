@@ -4,12 +4,13 @@ import './QR.scss';
 import { useEffect, useRef, useState } from 'react';
 
 const QR: React.FC = () => {
-  const [data, setData] = useState<any>(false)
+  const [data] = useState<any>(false)
   const qrRef = useRef() as any
   const [scanResultFile, setScanResultFile] = useState('');
 
   useEffect(() => {
-    console.log(data)
+    console.log(data, scanResultFile)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
   const handleScanFile = (result: any) => {
